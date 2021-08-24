@@ -8,7 +8,8 @@ create_s_project() {
 }
 
 deploy_s_project() {
-   echo "Deploy serverless project";
+   echo "Trigger Github Action and begin to deploy.";
+   gh workflow run Serverless-Devs
 }
 
 display_s_help() {
