@@ -1,7 +1,42 @@
 #!/bin/bash
 set -e
 
-echo "Hello gh-s!"
+echo "Hello Serverless-Devs!"
+
+create_s_project() {
+   echo "create serverless project";
+}
+
+deploy_s_project() {
+   echo "Deploy serverless project";
+}
+
+display_s_help() {
+    echo "Usage: gh s {create|deploy}"
+    echo
+    echo "   create -p xx  create serverless-devs project from template"
+    echo "   deploy        trigger Github Actions and deploy project to Serverless platform"
+    echo
+    # echo some stuff here for the -a or --add-options
+    exit 1
+}
+
+action=$1
+
+case $action in
+    "create")
+       create_s_project "$2" "$3"
+       ;;
+    "deploy")
+       deploy_s_project
+       ;;
+    -h|--help)
+       display_s_help
+       ;;
+    *)
+        echo "Unknown sub command, please use gh s --help"
+esac
+
 
 # Snippets to help get started:
 
